@@ -135,6 +135,25 @@ section {
     padding: 1.5rem;
 }
 
+.project-links {
+    margin-top: 1rem;
+}
+
+.project-link {
+    display: inline-block;
+    background: #3498db;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
+}
+
+.project-link:hover {
+    background: #2980b9;
+}
+
 .contact form {
     max-width: 600px;
     margin: 0 auto;

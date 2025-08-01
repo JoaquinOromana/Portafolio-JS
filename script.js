@@ -1,5 +1,7 @@
 // Animación de las barras de progreso de habilidades
 document.addEventListener('DOMContentLoaded', () => {
+    // Inicializar EmailJS
+    emailjs.init('G4kBg2ykXOLnw5A2C'); // Reemplazar con tu clave pública de EmailJS
     // Animar barras de progreso
     const progressBars = document.querySelectorAll('.progress');
     progressBars.forEach(bar => {
@@ -7,25 +9,28 @@ document.addEventListener('DOMContentLoaded', () => {
         bar.style.width = `${percent}%`;
     });
 
-    // Proyectos de ejemplo
+    // Proyectos 
     const proyectos = [
         {
-            titulo: 'Proyecto 1',
-            descripcion: 'Descripción del proyecto 1. Añade aquí los detalles de tu proyecto.',
+            titulo: 'Calculadora Java',
+            descripcion: 'Calculadora elegante y totalmente funcional',
             imagen: 'https://dummyimage.com/800x600/3498db/ffffff&text=Proyecto+1',
-            tecnologias: ['HTML', 'CSS', 'JavaScript']
+            tecnologias: ['Desarrollado con: Java.'],
+            url: 'https://github.com/JoaquinOromana/Calculadora-Java'
         },
         {
-            titulo: 'Proyecto 2',
-            descripcion: 'Descripción del proyecto 2. Añade aquí los detalles de tu proyecto.',
+            titulo: 'Juego de Piedra, Papel o Tijera',
+            descripcion: 'Implementación del famoso clásico juego de Piedra, Papel o Tijera en JavaScript',
             imagen: 'https://dummyimage.com/800x600/3498db/ffffff&text=Proyecto+2',
-            tecnologias: ['React', 'Node.js', 'MongoDB']
+            tecnologias: ['Desarrollado con: HTML', ', ', 'CSS', ', ', 'JavaScript.'],
+            url: 'https://github.com/JoaquinOromana/Juego-piedra-papel-o-tijera'
         },
         {
-            titulo: 'Proyecto 3',
-            descripcion: 'Descripción del proyecto 3. Añade aquí los detalles de tu proyecto.',
+            titulo: 'Tienda Online',
+            descripcion: 'Web ficticia de una tienda de gadgets y productos tecnológicos',
             imagen: 'https://dummyimage.com/800x600/3498db/ffffff&text=Proyecto+3',
-            tecnologias: ['Vue.js', 'Express', 'PostgreSQL']
+            tecnologias: ['Desarrollado con: HTML', ', ', 'CSS', ', ', 'JavaScript.'],
+            url: 'https://github.com/JoaquinOromana/Web-Ficticia-de-compra-de-gadgets-online'
         }
     ];
 
@@ -45,6 +50,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="tecnologias">
                         ${proyecto.tecnologias.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
                     </div>
+                    <div class="project-links">
+                        ${proyecto.url ? `<a href="${proyecto.url}" target="_blank" class="project-link">Ver proyecto</a>` : ''}
+                    </div>
                 </div>
             `;
             
@@ -59,9 +67,24 @@ document.addEventListener('DOMContentLoaded', () => {
     formularioContacto.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Aquí agregamos la lógica para enviar el formulario
-        alert('¡Gracias por tu mensaje! Te contactaré pronto.');
-        formularioContacto.reset();
+        // Obtener los datos del formulario
+        const formData = new FormData(formularioContacto);
+        const templateParams = {
+            from_name: formData.get('from_name'),
+            from_email: formData.get('from_email'),
+            message: formData.get('message'),
+            to_email: 'j.segura.illana@gmail.com'
+        };
+        
+        // Enviar email usando EmailJS
+        emailjs.send('service_lhjl2ot', 'template_9e9wtoo', templateParams)
+            .then(function(response) {
+                alert('¡Mensaje enviado exitosamente! Le contactaré pronto, un saludo.');
+                formularioContacto.reset();
+            }, function(error) {
+                alert('Error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+                console.error('Error:', error);
+            });
     });
 
     // Navegación suave

@@ -30,7 +30,7 @@
         <section id="acerca" class="about">
             <h2>Acerca de mí</h2>
             <div class="about-content">
-                <p>¡Hola! Soy Técnico en Desarrollo de Aplicaciones Web. He trabajado por cuenta propia creando sitios web con WordPress y Elementor Pro, y tengo conocimientos de HTML, CSS y JavaScript. Actualmente busco incorporarme a una empresa como desarrollador junior para seguir creciendo y aportar desde el primer día.</p>
+                <p>Técnico en Desarrollo de Aplicaciones Web. He trabajado por cuenta propia creando sitios web con WordPress y Elementor Pro, así como desarrollando desde cero o rediseñando páginas ya existentes con HTML, CSS y JavaScript. Actualmente busco incorporarme a una empresa como desarrollador junior, donde pueda seguir creciendo profesionalmente y aportar valor desde el primer día.</p>
                 <p>Me interesa seguir aprendiendo y mejorando mis habilidades, sobre todo en el desarrollo de aplicaciones web funcionales y bien estructuradas. Busco combinar lo que ya sé con nuevas tecnologías para crear proyectos útiles y con sentido práctico.</p>
             </div>
         </section>
@@ -104,16 +104,16 @@
         <section id="proyectos" class="projects">
             <h2>Mis Proyectos</h2>
             <div class="projects-container">
-                <!-- ¡Los proyectos se agregarán con JavaScript! -->
+                <!-- ¡Importante! ¡Los proyectos se agregarán con JavaScript! -->
             </div>
         </section>
 
         <section id="contacto" class="contact">
             <h2>Contacto</h2>
             <form id="contact-form">
-                <input type="text" placeholder="Nombre" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Mensaje" required></textarea>
+                <input type="text" name="from_name" placeholder="Nombre" required>
+                <input type="email" name="from_email" placeholder="Email" required>
+                <textarea name="message" placeholder="Mensaje" required></textarea>
                 <button type="submit">Enviar</button>
             </form>
         </section>
@@ -123,6 +123,7 @@
         <p>&copy; 2025 Portafolio de Joaquín Segura Illana. Todos los derechos reservados.</p>
     </footer>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
